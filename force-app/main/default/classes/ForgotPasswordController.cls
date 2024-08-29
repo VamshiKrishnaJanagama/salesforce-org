@@ -8,10 +8,11 @@ public with sharing class ForgotPasswordController {
 	
   	public PageReference forgotPassword() {
   		boolean success = Site.forgotPassword(username);
-  		PageReference pr = Page.ForgotPasswordConfirm;
+  		PageReference vfpage = Page.ForgotPasswordConfirm;
   		pr.setRedirect(true);
   		
-  		if (success) {  			
+  		if (success) { 
+			system.debug('it worked!'); 			
   			return pr;
   		}
   		return null;
